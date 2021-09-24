@@ -54,7 +54,7 @@
         </div>
       </div>
       <hr>
-      <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
+      <%= sanitize(simple_format(comment.body)).html_safe %>
     </div>
   <% end %>
 </div>
