@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog do Davi</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <div class="bg-primary text-white text-center mb-4 p-4">
+      <%= link_to root_path, class: 'text-white text-decoration-none' do %>
+        <h1 class="display-4">Blog do Davi Scholl</h1>
+      <% end %>
+
+      <p class="lead">Olá! Aqui você vai encontrar conteúdo sobre programação, tecnologia e carreira.</p>
+    </div>
+
+    <div class="container">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show" role="alert">
+          <%= message %>
+
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <footer class="bg-primary text-white text-center mt-4 p-3">
+      Copyright Davi Scholl <%= Time.now.year %>
+    </footer>
+  </body>
+</html>
