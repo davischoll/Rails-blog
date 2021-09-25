@@ -28,6 +28,17 @@
         </div>
       <% end %>
 
+      <div class="row">
+        <div class="col-4 offset-8 search d-flex justify-content-end mb-3">
+          <%= form_with url: search_posts_path, method: :get, local: true, class: 'd-inline-flex' do |form| %>
+            <div class="form-group me-2">
+              <%= form.search_field :q, class: 'form-control', required: true, placeholder: 'Busca', value: params[:q] %>
+            </div>
+            <%= form.submit 'Buscar', class: 'btn btn-outline-primary', data: { disable_with: 'Buscando...' } %>
+          <% end %>
+        </div>
+      </div>
+
       <%= yield %>
     </div>
 

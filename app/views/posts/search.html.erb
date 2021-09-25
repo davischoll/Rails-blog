@@ -1,0 +1,11 @@
+<h3 class="mb-3">
+  <% if @posts.any? %>
+    <%= pluralize @posts.count, 'resultado encontrado' %>:
+  <% else %>
+    Nenhum resultado encontrado.
+  <% end %>
+</h3>
+
+<% @posts.each do |post| %>
+  <%= render post %>
+<% end %>
